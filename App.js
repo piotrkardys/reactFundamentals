@@ -85,7 +85,7 @@ App.defaultProps = {                                  //determining the class ar
 }
 */
 
-/*  LESSON 8-9 */
+/*  LESSON 8-10 */
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -96,22 +96,25 @@ class App extends React.Component {
     this.update = this.update.bind(this);
   }
   update() {
-    this.setState({ val: this.state.val+1 })          //if update then increment field 'val'
+    this.setState({ val: this.state.val + 1 })          //if update then increment field 'val'
   }
 
   componentWillMount() {                              //if there is no element on the page and will be mounted
-    console.log('mounting..')
+    //console.log('mounting..')
+    this.setState({tmp: 3})                           //set the tmp on value 3
   }
   componentDidMount() {                               //if the element is mounted
-    console.log('mounted!')
+    //console.log('mounted!')
+    this.inc = setInterval(this.update, 1000);        //after every 1s this.update method will be called
   }
   componentWillUnmount() {                            //if there is element on the page and will be unmounted
-    console.log('unmounting..')
+    //console.log('unmounting..')
+    clearInterval(this.inc);                          //IMPORTANT! we need to clear the interval (otherwise this counter will running all the time)
   }
   render() {                                          //rendering of the element on the page
     //return <Button>React<Heart/></Button>             //classes & functions can be nasted
     console.log('rendering..')
-    return <button onClick={this.update}>{this.state.val}</button>  //if clicked call the update method
+    return <button onClick={this.update}>{this.state.val * this.state.tmp}</button>  //if clicked call the update method
   }
 }
 
