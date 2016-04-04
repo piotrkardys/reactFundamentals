@@ -19,33 +19,52 @@ class App extends React.Component {                   //creating component, clas
 //const App = () => <h1>HelloFunction</h1>            //this is also right way, but function doesn't have state field
 */
 
-/*  LESSON 4-5  */
+/*  LESSON 4-7  */
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class App extends React.Component {
   constructor() {                                     //constructor of the class
     super();
     this.state = {                                    //adding new field to the class
-      txt: '',                                        //fields of the 'state' field
-      int: 0
+      red: 50,                                        //fields of the 'state' field
+      green: 50,
+      blue: 50
     }
     this.update = this.update.bind(this)
   }
   update(event) {                                     //if some event on the page has occured
-    this.setState({txt: event.target.value})          //sets the 'state' txt field (with the event value)
+    this.setState({
+      red: ReactDOM.findDOMNode(this.refs.red).value, //searching the node with valid ref (red, green, blue)
+      green: ReactDOM.findDOMNode(this.refs.green).value, //and updating fields of the class
+      blue: ReactDOM.findDOMNode(this.refs.blue).value
+    })                                                //updates the 'state' field
   }
   render() {
-    return (                                                  //calling for the function Widget
-                                                              //txt, update - arguments of the Widget
+    return (                                          //three sliders with unique ref values
       <div>
-        <Widget txt={this.state.txt} update={this.update} />
-        <Widget txt={this.props.txt} update={this.update} />
+        <Slider ref="red" update={this.update} />
+        {this.state.red}
+        <br />
+        <Slider ref="green" update={this.update} />
+        {this.state.green}
+        <br />
+        <Slider ref="blue" update={this.update} />
+        {this.state.blue}
+        <br />
       </div>
     )
     }
 
 }
 
+class Slider extends React.Component {                //class of the Slider (if value of the input changes it calls update method)
+  render() {
+    return <input type="range" min="0" max="100" onChange={this.props.update} />
+  }
+}
+
+/*
 const Widget = (props) => {                           //function to show the results (returns updated context)
   return (                                            //returning element with the class arguments' values
     <div>
@@ -54,6 +73,7 @@ const Widget = (props) => {                           //function to show the res
     </div>
   )
 }
+*/
 
 App.propTypes = {                                     //determining the class arguments' types
   txt: React.PropTypes.string,

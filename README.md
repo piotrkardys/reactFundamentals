@@ -6,3 +6,4 @@
 "04.04.2016 - 13:15 - Lesson4: update file App.js (class arguments, defining their types and default values)" 
 "04.04.2016 - 14:05 - Lesson5: update file App.js (class 'state' field, update possibilities)" 
 "04.04.2016 - 15:10 - Lesson6: update file App.js (class rendering the class, division update into smaller parts)" 
+"04.04.2016 - 16:05 - Lesson7: update file App.js (unique ref values)" 
