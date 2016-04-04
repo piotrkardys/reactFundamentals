@@ -1,5 +1,6 @@
 "REACT FUNDAMENTALS" 
 "04.04.2016 - 8:50 - start of the project" 
 "04.04.2016 - 10:30 - Lesson1: react and babel configuration, creating files - index.html, App.js, main.js, webpack.config.js" 
-"04.04.2016 - 11:30 - Lesson2: update file App.js" 
-"04.04.2016 - 12:00 - Lesson3: update file App.js" 
+"04.04.2016 - 11:30 - Lesson2: update file App.js (diference between class and function for returning components" 
+"04.04.2016 - 12:00 - Lesson3: update file App.js (render() method - how to return "more" than 1 element)" 
+"04.04.2016 - 13:15 - Lesson4: update file App.js (class arguments, defining their types and default values)" 
