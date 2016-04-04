@@ -7,3 +7,4 @@
 "04.04.2016 - 14:05 - Lesson5: update file App.js (class 'state' field, update possibilities)" 
 "04.04.2016 - 15:10 - Lesson6: update file App.js (class rendering the class, division update into smaller parts)" 
 "04.04.2016 - 16:05 - Lesson7: update file App.js (unique ref values)" 
+"04.04.2016 - 16:35 - Lesson8: update file App.js (nasting elements &functions, this.props.children)" 
