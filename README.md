@@ -9,4 +9,5 @@
 "04.04.2016 - 16:05 - Lesson7: update file App.js (unique ref values)" 
 "04.04.2016 - 16:35 - Lesson8: update file App.js (nasting elements &functions, this.props.children)" 
 "04.04.2016 - 17:45 - Lesson9: update file App.js (component methods: mount/unmount)" 
-"04.04.2016 - 18:05 - Lesson10: update file App.js (examples of mount/unmount methods, method set/clearInterval" 
+"04.04.2016 - 18:05 - Lesson10: update file App.js (examples of mount/unmount methods, method set/clearInterval)" 
+"04.04.2016 - 18:30 - Lesson11: update file App.js (methods: componentWillReceiveProps, shouldComponentUpdate, componentDidUpdate)" 

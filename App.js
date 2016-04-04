@@ -85,59 +85,77 @@ App.defaultProps = {                                  //determining the class ar
 }
 */
 
-/*  LESSON 8-10 */
+/*  LESSON 8-11 */
 import React from 'react'
 import ReactDOM from 'react-dom'
 
 class App extends React.Component {
   constructor() {                                     //constructor of the class
     super();
-    this.state = { val: 0 }                           //val: 0
+    //this.state = { val: 0 }                           //val: 0
     this.update = this.update.bind(this);
+    this.state = {inc: false}
   }
   update() {
-    this.setState({ val: this.state.val + 1 })          //if update then increment field 'val'
+    //this.setState({ val: this.state.val + 1 })          //if update then increment field 'val'
+    ReactDOM.render(<App val={this.props.val + 1} />, document.getElementById('app')) //re-rendering all component with new value 'val' while update
   }
 
-  componentWillMount() {                              //if there is no element on the page and will be mounted
+  componentWillReceiveProps(nextProps) {                 //if the next props are grater than present, inc (increasing) is set true
+    this.setState({inc: nextProps.val > this.props.val})
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {       //if that method returns true, then the update method is called
+    return nextProps.val % 5 === 0;
+  }
+
+  componentDidUpdate(prevProps, prevState) {          //body of that method is executed only if the update method was called (that method executes ones after each update)
+    console.log('prevProps', prevProps)
+  }
+
+  //componentWillMount() {                              //if there is no element on the page and will be mounted
     //console.log('mounting..')
-    this.setState({tmp: 3})                           //set the tmp on value 3
-  }
-  componentDidMount() {                               //if the element is mounted
+  //  this.setState({tmp: 3})                           //set the tmp on value 3
+  //}
+  //componentDidMount() {                               //if the element is mounted
     //console.log('mounted!')
-    this.inc = setInterval(this.update, 1000);        //after every 1s this.update method will be called
-  }
-  componentWillUnmount() {                            //if there is element on the page and will be unmounted
+  //  this.inc = setInterval(this.update, 1000);        //after every 1s this.update method will be called
+  //}
+  //componentWillUnmount() {                            //if there is element on the page and will be unmounted
     //console.log('unmounting..')
-    clearInterval(this.inc);                          //IMPORTANT! we need to clear the interval (otherwise this counter will running all the time)
-  }
+  //  clearInterval(this.inc);                          //IMPORTANT! we need to clear the interval (otherwise this counter will running all the time)
+  //}
   render() {                                          //rendering of the element on the page
     //return <Button>React<Heart/></Button>             //classes & functions can be nasted
-    console.log('rendering..')
-    return <button onClick={this.update}>{this.state.val * this.state.tmp}</button>  //if clicked call the update method
+    //console.log('rendering..')
+    //return <button onClick={this.update}>{this.state.val * this.state.tmp}</button>  //if clicked call the update method
+    console.log(this.state.inc)
+    return <button onClick={this.update}>{this.props.val}</button>
   }
 }
 
-class Wrapper extends React.Component {
-  constructor() {
-    super();
-  }
-  mount() {                                       //methods for mounting and unmounting element (class of the element - App)
-    ReactDOM.render(<App />, document.getElementById('a'))
-  }
-  unmount() {
-    ReactDOM.unmountComponentAtNode(document.getElementById('a'))
-  }
-  render() {
-    return (                                        //there are 2 buttons: to mount and unmount the button on the page (if mount - calls mount() method; if unmount - calls unmount() method)
-      <div>
-        <button onClick={this.mount.bind(this)}>Mount</button>
-        <button onClick={this.unmount.bind(this)}>Unmount</button>
-        <div id="a"></div>
-      </div>
-    )
-  }
-}
+App.defaultProps = { val: 0 }
+
+//class Wrapper extends React.Component {
+//  constructor() {
+//    super();
+//  }
+//  mount() {                                       //methods for mounting and unmounting element (class of the element - App)
+//    ReactDOM.render(<App />, document.getElementById('a'))
+//  }
+//  unmount() {
+//    ReactDOM.unmountComponentAtNode(document.getElementById('a'))
+//  }
+//  render() {
+//    return (                                        //there are 2 buttons: to mount and unmount the button on the page (if mount - calls mount() method; if unmount - calls unmount() method)
+//      <div>
+//        <button onClick={this.mount.bind(this)}>Mount</button>
+//        <button onClick={this.unmount.bind(this)}>Unmount</button>
+//        <div id="a"></div>
+//      </div>
+//    )
+//  }
+//}
 
 //class Button extends React.Component {
 //  render() {
@@ -147,5 +165,5 @@ class Wrapper extends React.Component {
 
 //const Heart = () => <span className="glyphicon glyphicon-heart"></span> //Bootstrap's class
 
-//export default App
-export default Wrapper
+export default App
+//export default Wrapper
