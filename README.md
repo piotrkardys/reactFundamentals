@@ -5,3 +5,4 @@
 "04.04.2016 - 12:00 - Lesson3: update file App.js (render() method - how to return "more" than 1 element)" 
 "04.04.2016 - 13:15 - Lesson4: update file App.js (class arguments, defining their types and default values)" 
 "04.04.2016 - 14:05 - Lesson5: update file App.js (class 'state' field, update possibilities)" 
+"04.04.2016 - 15:10 - Lesson6: update file App.js (class rendering the class, division update into smaller parts)" 

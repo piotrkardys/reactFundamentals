@@ -26,25 +26,33 @@ class App extends React.Component {
   constructor() {                                     //constructor of the class
     super();
     this.state = {                                    //adding new field to the class
-      txt: 'some text',                               //fields of the 'state' field
-      int: 0,
-      txt1: 'other text'
+      txt: '',                                        //fields of the 'state' field
+      int: 0
     }
+    this.update = this.update.bind(this)
   }
   update(event) {                                     //if some event on the page has occured
     this.setState({txt: event.target.value})          //sets the 'state' txt field (with the event value)
   }
   render() {
-    return (                                          //returning element with the class arguments' values
+    return (                                                  //calling for the function Widget
+                                                              //txt, update - arguments of the Widget
       <div>
-        <input type="text" onChange={this.update.bind(this)} />
-        <h1>{this.state.txt}</h1>
-        <h1>{this.state.txt1}</h1>
-        <h2>{this.props.txt}</h2>
-        <h3>{this.props.int}</h3>
+        <Widget txt={this.state.txt} update={this.update} />
+        <Widget txt={this.props.txt} update={this.update} />
       </div>
     )
-  }
+    }
+
+}
+
+const Widget = (props) => {                           //function to show the results (returns updated context)
+  return (                                            //returning element with the class arguments' values
+    <div>
+      <input type="text" onChange={props.update} />
+      <h1>{props.txt}</h1>
+    </div>
+  )
 }
 
 App.propTypes = {                                     //determining the class arguments' types
