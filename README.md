@@ -4,3 +4,4 @@
 "04.04.2016 - 11:30 - Lesson2: update file App.js (diference between class and function for returning components" 
 "04.04.2016 - 12:00 - Lesson3: update file App.js (render() method - how to return "more" than 1 element)" 
 "04.04.2016 - 13:15 - Lesson4: update file App.js (class arguments, defining their types and default values)" 
+"04.04.2016 - 14:05 - Lesson5: update file App.js (class 'state' field, update possibilities)" 
