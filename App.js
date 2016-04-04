@@ -19,7 +19,7 @@ class App extends React.Component {                   //creating component, clas
 //const App = () => <h1>HelloFunction</h1>            //this is also right way, but function doesn't have state field
 */
 
-/*  LESSON 4-7  */
+/*  LESSON 4-7  */ /*
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -64,16 +64,16 @@ class Slider extends React.Component {                //class of the Slider (if 
   }
 }
 
-/*
-const Widget = (props) => {                           //function to show the results (returns updated context)
-  return (                                            //returning element with the class arguments' values
-    <div>
-      <input type="text" onChange={props.update} />
-      <h1>{props.txt}</h1>
-    </div>
-  )
-}
-*/
+
+//const Widget = (props) => {                           //function to show the results (returns updated context)
+//  return (                                            //returning element with the class arguments' values
+//    <div>
+//      <input type="text" onChange={props.update} />
+//      <h1>{props.txt}</h1>
+//    </div>
+//  )
+//}
+
 
 App.propTypes = {                                     //determining the class arguments' types
   txt: React.PropTypes.string,
@@ -83,5 +83,23 @@ App.propTypes = {                                     //determining the class ar
 App.defaultProps = {                                  //determining the class arguments' default value
   txt: 'default'
 }
+*/
+
+/*  LESSON 8 */
+import React from 'react'
+
+class App extends React.Component {
+  render() {
+    return <Button>React<Heart/></Button>             //classes & functions can be nasted
+  }
+}
+
+class Button extends React.Component {
+  render() {
+    return <button>{this.props.children}</button>     //this.props.children -> returns what is between marks of the class
+  }
+}
+
+const Heart = () => <span className="glyphicon glyphicon-heart"></span> //Bootstrap's class 
 
 export default App
