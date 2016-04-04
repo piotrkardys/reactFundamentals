@@ -85,21 +85,64 @@ App.defaultProps = {                                  //determining the class ar
 }
 */
 
-/*  LESSON 8 */
+/*  LESSON 8-9 */
 import React from 'react'
+import ReactDOM from 'react-dom'
 
 class App extends React.Component {
-  render() {
-    return <Button>React<Heart/></Button>             //classes & functions can be nasted
+  constructor() {                                     //constructor of the class
+    super();
+    this.state = { val: 0 }                           //val: 0
+    this.update = this.update.bind(this);
+  }
+  update() {
+    this.setState({ val: this.state.val+1 })          //if update then increment field 'val'
+  }
+
+  componentWillMount() {                              //if there is no element on the page and will be mounted
+    console.log('mounting..')
+  }
+  componentDidMount() {                               //if the element is mounted
+    console.log('mounted!')
+  }
+  componentWillUnmount() {                            //if there is element on the page and will be unmounted
+    console.log('unmounting..')
+  }
+  render() {                                          //rendering of the element on the page
+    //return <Button>React<Heart/></Button>             //classes & functions can be nasted
+    console.log('rendering..')
+    return <button onClick={this.update}>{this.state.val}</button>  //if clicked call the update method
   }
 }
 
-class Button extends React.Component {
+class Wrapper extends React.Component {
+  constructor() {
+    super();
+  }
+  mount() {                                       //methods for mounting and unmounting element (class of the element - App)
+    ReactDOM.render(<App />, document.getElementById('a'))
+  }
+  unmount() {
+    ReactDOM.unmountComponentAtNode(document.getElementById('a'))
+  }
   render() {
-    return <button>{this.props.children}</button>     //this.props.children -> returns what is between marks of the class
+    return (                                        //there are 2 buttons: to mount and unmount the button on the page (if mount - calls mount() method; if unmount - calls unmount() method)
+      <div>
+        <button onClick={this.mount.bind(this)}>Mount</button>
+        <button onClick={this.unmount.bind(this)}>Unmount</button>
+        <div id="a"></div>
+      </div>
+    )
   }
 }
 
-const Heart = () => <span className="glyphicon glyphicon-heart"></span> //Bootstrap's class 
+//class Button extends React.Component {
+//  render() {
+//    return <button>{this.props.children}</button>     //this.props.children -> returns what is between marks of the class
+//  }
+//}
 
-export default App
+//const Heart = () => <span className="glyphicon glyphicon-heart"></span> //Bootstrap's class
+
+//export default App
+export default Wrapper
