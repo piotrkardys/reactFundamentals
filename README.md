@@ -14,3 +14,4 @@
 "06.04.2016 - 09:15 - Lesson 12: update file App.js (method which receives other component and sets its values properly)" 
 "06.04.2016 - 10:15 - Lesson 13: update file App.js (composable components which can be reusable)" 
 "06.04.2016 - 11:05 - Lesson 14: update file App.js (tables - how to use them, how to go through, how to print)" 
+"06.04.2016 - 12:15 - Lesson 15: create file style.css, update file App.js &index.html (web-compiler: how to make it with babel library)" 

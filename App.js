@@ -291,7 +291,7 @@ NumInput.defaultProps = {                 //sets default properties
 export default App
 */
 
-/*  LESSON 14  */
+/*  LESSON 14  */ /*
 import React from 'react'
 
 class App extends React.Component {
@@ -319,6 +319,47 @@ const PersonRow = (props) => {                    //returns row of HTML table
             <td>{props.data.id}</td>
             <td>{props.data.name}</td>
          </tr>
+}
+
+export default App
+*/
+
+/*  LESSON 15  */
+import React from 'react'
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.update = this.update.bind(this);
+    this.state = {                                    //3 fields - for input, output and error
+      input: '//add your jsx here',
+      output: '',
+      err: ''
+    }
+  }
+  update(event) {
+    let code = event.target.value;
+    try {                                         //if some error occurs, function breaks and the code from catch block is executed
+      this.setState({ output: babel.transform(code, { stage: 0, loose: 'all'}).code,
+                      err: ''
+                    })
+    }
+    catch(err) {                                 //info about occured error
+      this.setState({err: err.message})
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <header>{this.state.err}</header>
+        <div className="container">
+          <textarea onChange={this.update} defaultValue={this.state.input}></textarea>
+          <pre>{this.state.output}</pre>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App
