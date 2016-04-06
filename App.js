@@ -218,7 +218,7 @@ class App extends React.Component {
 export default App;
 */
 
-/*  LESSON 13  */
+/*  LESSON 13  */ /*
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -286,6 +286,39 @@ NumInput.defaultProps = {                 //sets default properties
   val: 0,
   label: '',
   type: 'range'
+}
+
+export default App
+*/
+
+/*  LESSON 14  */
+import React from 'react'
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {data: [ {id: 1, name: "Piotr Kardyś"},              //creating data table with 4 records
+                          {id: 2, name: "Jakub Masłoń"},
+                          {id: 3, name: "Jan Kowalski"},
+                          {id: 4, name: "Adam Nowak"} ]
+                 }
+  }
+
+  render() {
+    let rows = this.state.data.map( person => {return <PersonRow key={person.id} data={person} /> }) //foreach person in 'data' table retrun PersonRow component
+                                                  //returns the table, where 'rows' is the container of every record in the table
+    return <table>
+              <tbody>{rows}</tbody>
+           </table>
+
+  }
+}
+
+const PersonRow = (props) => {                    //returns row of HTML table
+  return <tr>
+            <td>{props.data.id}</td>
+            <td>{props.data.name}</td>
+         </tr>
 }
 
 export default App
