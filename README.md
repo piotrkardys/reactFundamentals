@@ -15,3 +15,4 @@
 "06.04.2016 - 10:15 - Lesson 13: update file App.js (composable components which can be reusable)" 
 "06.04.2016 - 11:05 - Lesson 14: update file App.js (tables - how to use them, how to go through, how to print)" 
 "06.04.2016 - 12:15 - Lesson 15: create file style.css, update file App.js &index.html (web-compiler: how to make it with babel library)" 
+"06.04.2016 - 13:05 - end of the project" 
