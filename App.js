@@ -85,7 +85,7 @@ App.defaultProps = {                                  //determining the class ar
 }
 */
 
-/*  LESSON 8-11 */
+/*  LESSON 8-11 */ /*
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -167,3 +167,52 @@ App.defaultProps = { val: 0 }
 
 export default App
 //export default Wrapper
+*/
+
+/*  LESSON 12 */
+import React from 'react'
+
+let Mixin = InnerComponent => class extends React.Component {         //function that receives other component and returns it with parameters set properly
+  constructor() {                                                     //constructor of
+    super();
+    this.update = this.update.bind(this);
+    this.state = { val : 0 }
+  }
+  update() {
+    this.setState({ val: this.state.val + 1})
+  }
+
+  componentWillMount() {
+    console.log('mounting..')
+  }
+  componentDidMount() {
+    console.log('mounted.')
+  }
+  componentWillUnmount() {
+    console.log('unmounting..')
+  }
+
+  render() {
+    console.log('rendering..')
+    return <InnerComponent update={this.update} {...this.state} {...this.props} />
+  }
+}
+
+const Button = (props) => <button onClick={props.update}> {props.txt} - {props.val} </button>   //button component
+const Label = (props) => <label onMouseMove={props.update}> {props.txt} - {props.val} </label>  //label component
+
+let ButtonMixed = Mixin(Button)   //calls function Mixin with the button component
+let LabelMixed = Mixin(Label)
+
+class App extends React.Component {
+  render() {
+    return (                          //rendering of ButtonMixed &LabelMixed components
+      <div>
+        <ButtonMixed txt="Button" />
+        <LabelMixed txt="Label" />
+      </div>
+    )
+  }
+}
+
+export default App;

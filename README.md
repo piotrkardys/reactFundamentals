@@ -1,5 +1,5 @@
 "REACT FUNDAMENTALS" 
-"04.04.2016 - 8:50 - start of the project" 
+"04.04.2016 - 08:50 - start of the project" 
 "04.04.2016 - 10:30 - Lesson1: react and babel configuration, creating files - index.html, App.js, main.js, webpack.config.js" 
 "04.04.2016 - 11:30 - Lesson2: update file App.js (diference between class and function for returning components" 
 "04.04.2016 - 12:00 - Lesson3: update file App.js (render() method - how to return "more" than 1 element)" 
@@ -11,3 +11,4 @@
 "04.04.2016 - 17:45 - Lesson9: update file App.js (component methods: mount/unmount)" 
 "04.04.2016 - 18:05 - Lesson10: update file App.js (examples of mount/unmount methods, method set/clearInterval)" 
 "04.04.2016 - 18:30 - Lesson11: update file App.js (methods: componentWillReceiveProps, shouldComponentUpdate, componentDidUpdate)" 
+"06.04.2016 - 09:15 - Lesson 12: update file App.js (method which receives other component and sets its values properly" 
