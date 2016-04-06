@@ -11,4 +11,5 @@
 "04.04.2016 - 17:45 - Lesson9: update file App.js (component methods: mount/unmount)" 
 "04.04.2016 - 18:05 - Lesson10: update file App.js (examples of mount/unmount methods, method set/clearInterval)" 
 "04.04.2016 - 18:30 - Lesson11: update file App.js (methods: componentWillReceiveProps, shouldComponentUpdate, componentDidUpdate)" 
-"06.04.2016 - 09:15 - Lesson 12: update file App.js (method which receives other component and sets its values properly" 
+"06.04.2016 - 09:15 - Lesson 12: update file App.js (method which receives other component and sets its values properly)" 
+"06.04.2016 - 10:15 - Lesson 13: update file App.js (composable components which can be reusable)" 

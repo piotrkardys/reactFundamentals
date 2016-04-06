@@ -169,7 +169,7 @@ export default App
 //export default Wrapper
 */
 
-/*  LESSON 12 */
+/*  LESSON 12 */ /*
 import React from 'react'
 
 let Mixin = InnerComponent => class extends React.Component {         //function that receives other component and returns it with parameters set properly
@@ -216,3 +216,76 @@ class App extends React.Component {
 }
 
 export default App;
+*/
+
+/*  LESSON 13  */
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class App extends React.Component {               //main class - App
+  constructor() {
+    super();
+    this.state = { counter: 0 }
+    this.update = this.update.bind(this)
+  }
+  update(event) {
+    this.setState({ counter: ReactDOM.findDOMNode(this.refs.counter.refs.inp).value })
+  }
+
+  render() {
+    return (                                  //calls other component with arguments (which we are setting)
+      <div>
+        <NumInput
+          ref="counter"
+          min={0}
+          max={100}
+          step={1}
+          val={+this.state.counter}
+          type="number"
+          label="COUNTER"
+          update={this.update} />
+      </div>
+    )
+    }
+
+}
+
+class NumInput extends React.Component {        //class of the reusable component
+  render() {                                                                                     //set label if:
+    let label = this.props.label !== '' ? <label>{this.props.label}  {this.props.val} </label> : //label isn't empty
+                                          <label>VALUE {this.props.val} </label>                 //label is empty
+    return (                                            //returns input with properly arguments
+      <div>
+           <input
+            ref="inp"
+            type={this.props.type}
+            min={this.props.min}
+            max={this.props.max}
+            step={this.props.step}
+            defaultValue={this.props.val}
+            onChange={this.props.update} />{label}
+      </div>
+    )
+  }
+}
+
+NumInput.propType = {                     //determines the class arguments' types
+  min: React.PropTypes.number,
+  max: React.PropTypes.number,
+  step: React.PropTypes.number,
+  val: React.PropTypes.number,
+  label: React.PropTypes.string,
+  update: React.PropTypes.func.isRequired,                    //type - function
+  type: React.PropTypes.oneOf(['number', 'range'])            //i.e. one of only that two strings
+}
+
+NumInput.defaultProps = {                 //sets default properties
+  min: 0,
+  max: 100,
+  step: 1,
+  val: 0,
+  label: '',
+  type: 'range'
+}
+
+export default App
